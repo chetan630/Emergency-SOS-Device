@@ -1,0 +1,54 @@
+# Keil / ARM build output
+
+*.axf
+*.hex
+*.bin
+*.elf
+*.map
+*.lst
+*.htm
+
+# Keil generated files
+
+*.bak
+*.iex
+*.lnp
+*.tra
+*.dep
+*.d
+*.crf
+*.o
+*.obj
+
+# Keil project user settings
+
+*.uvguix.*
+*.uvoptx
+
+# Debug / listing output
+
+Listings/
+Objects/
+Debug/
+Release/
+
+# Temporary files
+
+*.tmp
+*.log
+*.swp
+*~
+
+# OS generated files
+
+.DS_Store
+Thumbs.db
+
+# VS Code
+
+.vscode/
+
+# Backup files
+
+*.orig
+*.backup
