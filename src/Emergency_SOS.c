@@ -452,7 +452,7 @@ void gsm_cmd(){
   uart3_tx_str("AT+CMGF=1\r\n");
   delay_us(800000);
 
-  uart3_tx_str("AT+CMGS=\"8904489565\"\r\n");
+  uart3_tx_str("AT+CMGS=\"YOUR_NUMBER\"\r\n");
   delay_us(1500000);   // WAIT for '>'
 
   uart3_tx_str(lat);

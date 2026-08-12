@@ -4,22 +4,22 @@
 
 An embedded emergency alert prototype built using the **LPC1768 ARM Cortex-M3 microcontroller**. The system uses an **ADXL345 accelerometer** to detect a configured single-tap event and, when triggered, obtains the current GPS location and initiates an SMS alert through a GSM module.
 
-The prototype was built using a general LPC1768 development board with external modules connected using jumper wires. No custom PCB was designed for this project.
+The prototype was built using a general LPC1768 development board with external modules connected using jumper wires. **No custom PCB was designed for this project.**
 
 ---
 
 ## Features
 
-* Accelerometer-based event detection using **ADXL345**
-* Interrupt-driven event detection using the LPC1768 GPIO interrupt
-* Real-time system status on a **16×2 LCD**
-* GPS location acquisition using a **NEO-6M GPS module**
-* GPS NMEA/GPRMC sentence processing
-* SMS alert transmission using a **SIM908 GSM module**
-* I²C communication for the ADXL345 and LCD
-* UART communication for GPS and GSM
-* Timer-based delays using LPC1768 Timer0
-* Register-level peripheral programming
+- Accelerometer-based event detection using **ADXL345**
+- Interrupt-driven event detection using the LPC1768 GPIO interrupt
+- Real-time system status on a **16×2 LCD**
+- GPS location acquisition using a **NEO-6M GPS module**
+- GPS NMEA/GPRMC sentence processing
+- SMS alert transmission using a **SIM908 GSM module**
+- I²C communication for the ADXL345 and LCD
+- UART communication for GPS and GSM
+- Timer-based delays using LPC1768 Timer0
+- Register-level peripheral programming
 
 ---
 
@@ -46,8 +46,8 @@ The prototype was built using a general LPC1768 development board with external 
                     ┌─────────┘     └──────────┐
                     ▼                           ▼
              ┌─────────────┐              ┌─────────┐
-             │   16×2 LCD  │              │  GPS    │
-             │    I²C      │              │ NEO-6M  │
+             │   16×2 LCD  │              │   GPS   │
+             │     I²C     │              │  NEO-6M │
              └─────────────┘              └─────────┘
 
                               UART3
@@ -116,18 +116,18 @@ Return to Monitoring
 
 ## Hardware
 
-| Component      | Purpose                       | Interface |
-| -------------- | ----------------------------- | --------- |
-| **LPC1768**    | Main microcontroller          | —         |
-| **ADXL345**    | Event/accelerometer detection | I²C       |
-| **NEO-6M GPS** | Location acquisition          | UART      |
-| **SIM908 GSM** | SMS alert transmission        | UART      |
-| **16×2 LCD**   | System status display         | I²C       |
-| **LED**        | Event indication              | GPIO      |
+| Component | Purpose | Interface |
+|---|---|---|
+| LPC1768 | Main microcontroller | — |
+| ADXL345 | Event / accelerometer detection | I²C |
+| NEO-6M GPS | Location acquisition | UART |
+| SIM908 GSM | SMS alert transmission | UART |
+| 16×2 LCD | System status display | I²C |
+| LED | Event indication | GPIO |
 
 ### Hardware Setup
 
-The prototype uses a general LPC1768 development board with the external modules connected using jumper wires.
+The prototype uses a general **LPC1768 development board** with the external modules connected using jumper wires.
 
 **No custom PCB was designed for this project.**
 
@@ -135,14 +135,14 @@ The prototype uses a general LPC1768 development board with the external modules
 
 ## Pin Configuration
 
-| LPC1768 Pin | Function       | Module        |
-| ----------- | -------------- | ------------- |
-| `P0.27`     | SDA0           | ADXL345 / LCD |
-| `P0.28`     | SCL0           | ADXL345 / LCD |
-| `P0.2`      | TXD0           | GPS           |
-| `P0.3`      | RXD0           | GPS           |
-| `P0.0`      | GPIO interrupt | ADXL345       |
-| `P1.29`     | GPIO output    | Status LED    |
+| LPC1768 Pin | Function | Module |
+|---|---|---|
+| `P0.27` | SDA0 | ADXL345 / LCD |
+| `P0.28` | SCL0 | ADXL345 / LCD |
+| `P0.2` | TXD0 | GPS |
+| `P0.3` | RXD0 | GPS |
+| `P0.0` | GPIO interrupt | ADXL345 |
+| `P1.29` | GPIO output | Status LED |
 
 More details are available in [`docs/pin-configuration.md`](docs/pin-configuration.md).
 
@@ -154,8 +154,8 @@ More details are available in [`docs/pin-configuration.md`](docs/pin-configurati
 
 I²C0 is used for communication with:
 
-* ADXL345 accelerometer
-* 16×2 LCD
+- ADXL345 accelerometer
+- 16×2 LCD
 
 The firmware configures:
 
@@ -194,11 +194,11 @@ The ADXL345 is configured for a **single-tap interrupt**.
 
 The firmware configures:
 
-* Tap threshold
-* Tap duration
-* Tap axis
-* Interrupt mapping
-* Interrupt enable
+- Tap threshold
+- Tap duration
+- Tap axis
+- Interrupt mapping
+- Interrupt enable
 
 When the interrupt occurs, the LPC1768 `EINT3_IRQHandler()` clears the interrupt and sets the event flag.
 
@@ -297,15 +297,36 @@ Emergency_SOS.c
 
 ---
 
+## Keil µVision 4 Project
+
+The firmware was developed and tested using **Keil µVision 4**.
+
+The Keil project file is included in the repository:
+
+```text
+keil/
+└── Emergency_SOS.uvprojx
+```
+
+The project can be opened using **Keil µVision 4** with the required LPC17xx device support installed.
+
+> The original working Keil project configuration has been preserved. The firmware source code is kept in its original implementation rather than being refactored for the GitHub repository.
+
+---
+
 ## Repository Structure
 
 ```text
 Emergency-SOS-Device/
 │
 ├── README.md
+├── .gitignore
 │
 ├── src/
 │   └── Emergency_SOS.c
+│
+├── keil/
+│   └── Emergency_SOS.uvprojx
 │
 ├── datasheets/
 │   └── Module Datasheets
@@ -325,15 +346,15 @@ Emergency-SOS-Device/
 
 The prototype was tested for:
 
-* LPC1768 peripheral initialization
-* ADXL345 event detection
-* GPIO interrupt operation
-* LCD status indication
-* GPS UART communication
-* GPS location extraction
-* GSM UART communication
-* SMS alert sequence
-* End-to-end event handling
+- LPC1768 peripheral initialization
+- ADXL345 event detection
+- GPIO interrupt operation
+- LCD status indication
+- GPS UART communication
+- GPS location extraction
+- GSM UART communication
+- SMS alert sequence
+- End-to-end event handling
 
 Detailed test information is available in [`docs/test-results.md`](docs/test-results.md).
 
@@ -341,49 +362,49 @@ Detailed test information is available in [`docs/test-results.md`](docs/test-res
 
 ## Development Environment
 
-| Category             | Tool / Technology |
-| -------------------- | ----------------- |
-| Microcontroller      | LPC1768           |
-| CPU                  | ARM Cortex-M3     |
-| Programming Language | Embedded C        |
-| IDE                  | Keil µVision      |
-| Debugging            | JTAG / ULINK      |
-| Communication        | I²C, UART         |
-| Sensor               | ADXL345           |
-| GPS                  | NEO-6M            |
-| GSM                  | SIM908            |
-| Display              | 16×2 LCD          |
+| Category | Tool / Technology |
+|---|---|
+| Microcontroller | LPC1768 |
+| CPU | ARM Cortex-M3 |
+| Programming Language | Embedded C |
+| IDE | **Keil µVision 4** |
+| Debugging | JTAG / ULINK |
+| Communication | I²C, UART |
+| Sensor | ADXL345 |
+| GPS | NEO-6M |
+| GSM | SIM908 |
+| Display | 16×2 LCD |
 
 ---
 
 ## Limitations
 
-* The current firmware is implemented in a single C source file.
-* GPS parsing is implemented around the GPRMC sentence format.
-* The emergency phone number is currently specified in the firmware and should be replaced before public release.
-* The prototype uses jumper-wire connections rather than a custom PCB.
-* Event detection is based on the configured ADXL345 single-tap interrupt.
+- The current firmware is implemented in a single C source file.
+- GPS parsing is implemented around the GPRMC sentence format.
+- The emergency phone number is currently specified in the firmware and should be replaced before public release.
+- The prototype uses jumper-wire connections rather than a custom PCB.
+- Event detection is based on the configured ADXL345 single-tap interrupt.
 
 ---
 
 ## Future Improvements
 
-* Split the firmware into modular `.c` and `.h` driver files.
-* Improve GPS NMEA parsing and validation.
-* Add configurable emergency contact numbers.
-* Add a user cancellation/confirmation mechanism.
-* Improve event detection using accelerometer data analysis.
-* Add watchdog and fault-recovery mechanisms.
-* Design a dedicated PCB for a production-oriented version.
-* Improve error handling for GPS and GSM communication failures.
+- Split the firmware into modular `.c` and `.h` driver files.
+- Improve GPS NMEA parsing and validation.
+- Add configurable emergency contact numbers.
+- Add a user cancellation / confirmation mechanism.
+- Improve event detection using accelerometer data analysis.
+- Add watchdog and fault-recovery mechanisms.
+- Design a dedicated PCB for a production-oriented version.
+- Improve error handling for GPS and GSM communication failures.
 
 ---
 
 ## Documentation
 
-* [Pin Configuration](docs/pin-configuration.md)
-* [Project Documentation](docs/project-documentation.md)
-* [Test Results](docs/test-results.md)
+- [Pin Configuration](docs/pin-configuration.md)
+- [Project Documentation](docs/project-documentation.md)
+- [Test Results](docs/test-results.md)
 
 ---
 
