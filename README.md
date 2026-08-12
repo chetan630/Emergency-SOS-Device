@@ -1,2 +1,0 @@
-# Emergency-SOS-Device
-hi
