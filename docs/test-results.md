@@ -145,13 +145,11 @@ The firmware then clears the event flag and ADXL345 interrupt source and returns
 | GSM UART baud rate      |                 9600 baud                |
 | ADXL345 data rate       |                  100 Hz                  |
 
-The project resume reports event detection latency below 300 ms, GPS accuracy of approximately 5–15 m, and end-to-end SMS transmission below 15 seconds. These values should be retained here only if they correspond to actual measurements performed during project testing.
-
 ## 9. Test Environment
 
 **Controller:** LPC1768 ARM Cortex-M3
 
-**Development Environment:** Keil µVision
+**Development Environment:** Keil µVision 4
 
 **Hardware Setup:** LPC1768 development board with external modules connected using jumper wires
 
