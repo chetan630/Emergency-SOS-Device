@@ -136,16 +136,14 @@ The firmware then clears the event flag and ADXL345 interrupt source and returns
 
 ## 8. Performance Results
 
-The following performance values should be included only when supported by actual measurements from the project testing:
-
-| Parameter               | Result                                   |
+| Parameter               |                  Result                  |
 | ----------------------- | ---------------------------------------- |
-| Event detection latency | To be documented from measured test data |
-| GPS position accuracy   | To be documented from measured test data |
-| SMS transmission time   | To be documented from measured test data |
-| GPS UART baud rate      | 9600 baud                                |
-| GSM UART baud rate      | 9600 baud                                |
-| ADXL345 data rate       | 100 Hz                                   |
+| Event detection latency |                  <300ms                  |
+| GPS position accuracy   |                  ~5-15m                  |
+| SMS transmission time   |                  <15sec                  |
+| GPS UART baud rate      |                 9600 baud                |
+| GSM UART baud rate      |                 9600 baud                |
+| ADXL345 data rate       |                  100 Hz                  |
 
 The project resume reports event detection latency below 300 ms, GPS accuracy of approximately 5–15 m, and end-to-end SMS transmission below 15 seconds. These values should be retained here only if they correspond to actual measurements performed during project testing.
 
