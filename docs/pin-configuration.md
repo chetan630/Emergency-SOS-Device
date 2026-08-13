@@ -86,5 +86,3 @@ A GPIO output is used to indicate the detected-event state.
 ## Hardware Setup
 
 The prototype was assembled using a general LPC1768 development board and external modules connected using jumper wires. No custom PCB was designed for this project.
-
-> **Note:** The pin assignments documented here are based on the current firmware source. Physical wiring should be verified against the actual prototype before making changes to the hardware documentation.
