@@ -310,8 +310,6 @@ keil/
 
 The project can be opened using **Keil µVision 4** with the required LPC17xx device support installed.
 
-> The original working Keil project configuration has been preserved. The firmware source code is kept in its original implementation rather than being refactored for the GitHub repository.
-
 ---
 
 ## Repository Structure
