@@ -247,8 +247,6 @@ AT+CMGS
 
 The location information is then transmitted as part of the SMS sequence.
 
-> **Security note:** Before publishing the source code publicly, replace the emergency phone number currently present in the firmware with a placeholder or configurable value.
-
 ---
 
 ## LCD Status
